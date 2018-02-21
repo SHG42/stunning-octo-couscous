@@ -1,0 +1,212 @@
+/*
+///////////////////////////////////////////////////////////
+CSS SHEET FOR REGISTER AND LOGIN PAGES
+NOTES:
+  - MAKE ALL PAGES ACCESSIBLE: look into tabindex, focus (esp for selection pages)
+//////////////////////////////////////////////////////////
+*/
+
+
+/*
+///////////////////////////////////////////////////////////
+GLOBAL RULES
+//////////////////////////////////////////////////////////
+*/
+html { /*BACKGROUND IMAGE: map upon which icons will be arranged in RegionSelect page*/
+  background: url("landscape_background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} /* OK */
+
+
+* { /*THIS RESETS INVISIBLE EXTRA PADDING AND MARGINS ON TEXT ELEMENTS, allows padding to be fully individualized per element */
+  padding: 0;
+  margin: 0;
+  border: 0;
+} /* OK */
+
+body { /* ESTABLISHES BODY FONT*/
+  font-family: 'IM FELL English SC', sans-serif;
+  color: black;
+  font-size: 1.25em;
+  font-style: normal;
+  margin: 0.1em; /*THIS ESTABLISHES SPACE AROUND BIGBOX, NOT RELATED TO FONT BUT IS NEEDED FOR BODY ELEMENT*/
+} /* OK */
+
+ul, li {
+  list-style-type: none;
+} /* THESE REMOVE BULLET POINTS */
+
+.HolyGrail-text, .HolyGrail-form, footer {
+  background-color:rgba(192,192,192,0.9);
+  border: 0.125em solid black;
+}
+
+.HolyGrail /*FLEXBOX RULES FOR BODY ELEMENT. RECALL: body element has HolyGrail class applied*/{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}/*makes all body elements full page width and height, makes them same width across page*/
+
+/*
+///////////////////////////////////////////////////////////
+ALIGNMENT RULES: make page elements sit where they're supposed to
+FLEX RULES
+//////////////////////////////////////////////////////////
+*/
+#logo {/*applies to the logo image*/
+  margin: 1.5em auto 1em auto;
+  width: auto;
+  max-width: 45%;
+  display: block;
+  position: relative;
+}
+
+.HolyGrail-body { /*RECALL: the div containing all of the main content areas has this class applied to it*/
+  display: flex;
+  flex: 1;
+  margin: 0.3em;
+}
+
+.HolyGrail-form { /*the aside containing login and registration forms has this class applied*/
+  flex: 1;
+  order: -1; /*puts summary on the left*/
+  margin: 0.3em;
+  justify-content: center;
+}
+
+.HolyGrail-text {/*the main element containing lore blather has this class applied*/
+  flex: 2;/*have text take up twice as much space as register*/
+  margin: 0.3em;
+  text-align: center;
+}
+
+/*
+///////////////////////////////////////////////////////////
+VISUAL STYLE RULES
+//////////////////////////////////////////////////////////
+*/
+.summary {/*rules for the div that contains the lore blather for all landing pages*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5em 0.7em 1.5em 0.7em;
+}
+.summary > h1 + p {
+  text-align: center;
+}
+#welcomeback {/*specific rules for .summary with ID welcomeback because it is a butt*/
+
+}
+
+a.GoButton {/*rules for the buttons that navigate to the login and reg pages*/
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-align: center;
+    text-decoration: none;
+    color: initial;
+    background-color:rgba(192,192,192,0.6);
+    border: 0.125em solid black;
+    border-radius: 0.3em;
+    padding: 0.2em;
+
+}
+.gobuttons {/*class for the div that contains the nav buttons so it sits correctly*/
+  text-align: center;
+}
+
+/*FORM RULES: BEHAVING NICELY,DO NO CHANGE*/
+#firstloginheader {/*specific rules for the header on the first login form box because it refused to behave*/
+  text-align: center;
+}
+
+form {
+  padding: 1.5em 1em 1.5em 1em;
+}
+
+.form-row {/*these are the sets of form labels and corresponding inputs*/
+  display: flex;
+  justify-content: flex-end;
+  margin: 1em auto 1em auto;
+  flex-direction: row;
+}
+.form-row > label{/*controls for form label styles*/
+  flex: 1;/*this allows for the inputs to be same width and stacked*/
+  text-align: center;
+}
+.form-row > input {/*the carrot selector lets us select immediate childs of the element, here we want to control the form inputs*/
+  flex: 2;/*this makes the input fields same width and stacks them evenly*/
+  font: 1em sans-serif;
+  border: 0.12em solid #999;
+}
+form > h1, .required {/*controls the text elements inside the form boxes*/
+  display: flex;
+  justify-content: center;
+
+}
+
+input, label {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #000;
+}
+input:invalid {
+	border: 2px solid red;
+}
+
+.submitbutton {/*controls for the form submit button*/
+  padding: 0.5em;
+  margin: 0.5em;
+  flex: 2;
+}
+
+footer { /*CENTERS FOOTER BELOW BIGBOX */
+  text-align: center;
+}
+
+#credtitle {
+  text-decoration: underline;
+}
+
+ul.creditslist li{
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+
+/*
+///////////////////////////////////////////////////////////
+MEDIA QUERIES
+-Make one for setting logo above description when in small screen size
+//////////////////////////////////////////////////////////
+*/
+/*NOTE: for small screen widths, make boxes stack vertically and make sections take up whole width*/
+@-ms-viewport{
+  width: device-width;
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  .HolyGrail-body {flex-direction: column;}
+  .HolyGrail-form {order: 1;}
+  .HolyGrail-text {order: -1;}
+  #logo {width: 50%; max-width: 60%;}
+}
+
+@media screen and (max-width: 736px) and (orientation: landscape) {
+  .HolyGrail-body {flex-direction: column;}
+  .HolyGrail-form {order: 1;}
+  .HolyGrail-text {order: -1;}
+  #logo {width: 50%; max-width: 60%;}
+}
+
+@media screen and (max-width: 360px) and (orientation: portrait) {
+  .form-row {flex-direction: column;}
+}

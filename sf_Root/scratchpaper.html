@@ -1,0 +1,1161 @@
+<!--ORIGINAL HTML-->
+<!--First Attempt Overlay Breakpoints-->
+/*INITIAL OVERLAY BREAKPOINT 1*/
+@media screen and (max-width: 800px) and (orientation: portrait) {
+.overlaycontent {width: 90%; height: 90%; justify-content: center; align-items: center;}
+#logo {max-width: 60%;}
+.chooseregion, .choosefounder {font-size: 1.5em;}
+}
+
+/*INITIAL OVERLAY BREAKPOINT 2*/
+@media screen and (max-width: 736px) and (orientation: portrait) {
+.overlaycontent {width: 100%; height: 100%;}
+#logo {max-width: 50%;}
+.chooseregion, .choosefounder {font-size: 1.3em;}
+}
+
+/*INITIAL OVERLAY BREAKPOINT 3*/
+@media screen and (max-width: 736px) and (orientation: landscape) {
+.overlaycontent {width: 100%; height: 100%;}
+#logo {display: none;}
+#flatlogo {display: inline-block;}
+.chooseregion, .choosefounder {font-size: 1em;}
+}
+<!--QUERIES TAKE2-->
+/*UNICORN MODAL BREAKPOINT 1*/
+@media screen and (max-width: 1224px) {
+  /*Biggest problem: image starts to get cramped*/
+  .previewUnicorn {width: 100%;}
+}
+
+/*UNICORN MODAL BREAKPOINT 2*/
+@media screen and (max-width: 800px) {
+  /*@800px width, 2column layout starts to break*/
+  #founderPopup {flex-direction: column;}
+  #column1 {width: 100%;}
+  #column2 {width: 100%;}
+  .previewUnicorn {width: 80%; height: 100%;}
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    /*@768px width, cutoff occurs*/
+    #founderPopup {flex-direction: column;}
+    #column1 {width: 100%;}
+    #column2 {width: 100%;}
+    .previewUnicorn {width: 70%; height: 100%;}
+}
+
+@media screen and (max-width: 736px) {
+    /*@736px width, cutoff occurs*/
+    #founderPopup {flex-direction: column;}
+    #column1 {width: 100%;}
+    #column2 {display: none;}
+    .previewUnicorn {display: none;}
+}
+
+@media screen and (max-width: 720px) and (orientation: portrait) {
+  #founderPopup {flex-direction: column;}
+  #column1 {width: 100%;}
+  #column2 {width: 100%;}
+  .previewUnicorn {width: 50%; height: 100%;}
+}
+<!--FIRST ATTEMPT UNICORN MODAL QUERIES-->
+/*UNICORN MODAL BREAKPOINT 1*/
+@media screen and (max-width: 768px) {
+#founderPopup {flex-direction: column;}
+#column1 {width: 100%; height: 90%;}
+#column2 {display: none;}
+}
+
+/*UNICORN MODAL BREAKPOINT 2*/
+@media screen and (max-width: 640px) {
+#founderPopup {flex-direction: column; margin: 0.3em;}
+#column1 {width: 100%; height: 90%; margin: 0.3em; max-height: 98%;}
+#column2 {display: none;}
+}
+
+@media screen and (max-width: 568px) and (orientation: landscape) {
+#founderPopup {flex-direction: column;}
+#column1 {height: auto; margin: 0.1em; width: 100%;}
+}
+<!--NONFLEX MODAL-->
+.modal {/*for the section containing the whole modal including background layer*/
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  visibility: hidden;
+  overflow: auto;/*added*/
+  width: 100%;
+  height: 100%;
+
+}
+.modal-content {/*for the div containing the content box*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:rgba(192,192,192,0.0);
+  border-radius: 0.5rem;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  width: auto;
+  display: inline-block;
+  height: 90%;
+  /*NEW RULES FOR BACKGROUND IMAGE vvvv*/
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+.popupText {
+  position: relative;
+  background-color:rgba(192,192,192,0.9);
+  text-align: center;
+  border: 0.125em groove black;
+  width: 75%;
+  margin: 2em auto 2em auto;
+  padding: 1em;
+  display: block;
+}
+.popupHeader {
+  text-decoration: underline;
+  position: relative;
+  background-color:rgba(192,192,192,0.9);
+  text-align: center;
+  border: 0.125em groove black;
+  margin: 2em auto 2em auto;
+  width: 72%;
+  padding: 1em;
+  display: block;
+}
+.chooseOrNo {
+  position: relative;
+  text-align: center;
+  display: block;
+  margin: 2em auto 2em auto;
+}
+.popupButton {
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: .25rem;
+  background-color: lightgray;
+  border: 0.125em solid darkgray;
+  padding: 0.5em;
+  margin: 1em auto 1em auto;
+  width: 34%;
+}
+.popupButton:hover {
+  background: linear-gradient(to right, rgba(4,239,235,0.9),rgba(4,239,235,0.5));
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleX(1.0) scaleY(1.0);
+}
+.hide-modal {
+  visibility: visible;
+  opacity: 0;
+  transform: scaleX(1.1) scaleY(1.1);
+}
+.hide-modal2 {
+  visibility: hidden;
+}
+<!--MAP HTML-->
+<img src="[testmap] (imported)" width="1920" height="1080" border="0" usemap="#map" />
+
+<map name="map">
+<!-- #$-:Image map file created by GIMP Image Map plug-in -->
+<!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
+<!-- #$-:Please do not edit lines starting with "#$" -->
+<!-- #$VERSION:2.3 -->
+<!-- #$AUTHOR:LaptopUser -->
+<area shape="rect" coords="418,112,966,317"  nohref="nohref" />
+<area shape="rect" coords="1009,16,1326,306"  nohref="nohref" />
+<area shape="poly" coords="1262,481,1334,328,1428,275,1750,321,1765,552,1550,576,1260,553"  nohref="nohref" />
+<area shape="poly" coords="1642,810,1163,813,1161,1036,1635,1037"  nohref="nohref" />
+<area shape="poly" coords="475,755,763,735,860,775,848,989,470,981"  nohref="nohref" />
+<area shape="poly" coords="1013,428,1179,458,1284,620,1290,742,1068,798,919,758,807,686,885,516"  nohref="nohref" />
+</map>
+
+<!--OLD MAP POSITIONING-->
+#Arctic {
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  width: 15%;
+  max-width: 35%;
+}
+
+#Swamp {
+  position: absolute;
+  top: 4%;
+  left: 20%;
+  width: 15%;
+  max-width: 35%;
+}
+
+#Forest {
+  position: absolute;
+  top: 80%;
+  left: 85%;
+  width: 20%;
+  max-width: 35%;
+}
+
+#Mountains {
+  position: absolute;
+  top: 55%;
+  left: 85%;
+  width: 15%;
+  max-width: 35%;
+}
+
+#Desert {
+  position: absolute;
+  top: 10%;
+  left: 85%;
+  width: 15%;
+  max-width: 35%;
+}
+
+#Savannah {
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  width: 15%;
+  max-width: 35%;
+}
+
+#Arctic {
+  position: absolute;
+  top: 3%;
+  left: 55%;
+  width: 12%;
+}
+
+#Swamp {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+}
+
+#Forest {
+  position: absolute;
+  top: 25%;
+  left: 55%;
+}
+
+#Mountains {
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}
+
+#Desert {
+  position: absolute;
+  top: 75%;
+  left: 60%;
+}
+
+#Savannah {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+}
+
+V2
+#Arctic {
+  position: absolute;
+  top: 3%;
+  left: 55%;
+  width: 12%;
+}
+
+#Swamp {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+}
+
+#Forest {
+  position: absolute;
+  top: 25%;
+  left: 55%;
+}
+
+#Mountains {
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}
+
+#Desert {
+  position: absolute;
+  top: 75%;
+  left: 60%;
+}
+
+#Savannah {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+}
+
+<!--NONFLEX BODY/OVERLAY RULES-->
+body { /* ESTABLISHES BODY FONT*/
+  font-family: 'IM FELL English SC', sans-serif;
+  color: black;
+  font-size: 1.25em;
+  font-style: normal;
+  margin: 0.1em; /*THIS ESTABLISHES SPACE AROUND BIGBOX, NOT RELATED TO FONT BUT IS NEEDED FOR BODY ELEMENT*/
+  overflow: hidden;
+  background-color: grey;/*CHANGE LATER*/
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+} /* OK */
+
+#regionOnloadOverlay, #founderOnloadOverlay {/*INITIAL OVERLAY RULES: KEEP. PERTAINS ONLY TO INITIAL OVERLAY AND ITS CONTENTS!!!*/
+  display: none; /*OK: sets default behavior to hidden*/
+  background-image: url("landscape_background.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*margin: 2em auto 2em auto;*/
+  width: 100%;
+  height: 100%
+}
+
+.main {/*specific rules for the initial overlay contentbox on the select page*/
+  background-color:rgba(192,192,192,0.8);
+  text-align: center;
+  display: block;
+  margin: 3em auto 3em auto;
+  width: 80%;
+  border: 0.125em solid black;
+  padding: 0.5em;
+}
+
+#logo {
+  display:inline-flex;
+  margin: 0.1em auto 0.1em auto;
+  width: auto;
+  max-width: 35%;
+  /*max-width: 56.25em;
+  max-height: 18.75em;*/
+  padding: 0em;
+} /* OK : gets logo size under control*/
+
+<!--WEIRDFLEX CSS STARTER PAGE-->
+.bigbox {/*body element class*/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.unicornPen {/*class name for the container element holding the unicorn icons*/
+  display: flex;
+  flex: 1;
+
+}
+.unicorn_row {/*the divs containing equal sets of unicorn icons*/
+  /* 50% is the width of the columns */
+  flex: 0 0 50%;
+  justify-content: center;
+}
+
+#unicornModal {/*ID attribute for the modal container on the founder page*/
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  flex-direction: column;
+  background-color: blue;
+
+}
+
+#founderPopup {/*ID attribute for the container holding the two columns*/
+  background-color: black;
+  display: flex;
+  flex: 1;
+  margin: 1em auto 1em auto;
+  width: 80%;
+  max-width: 90%;
+  justify-content: center;
+}
+
+#column1, #column2 {
+  /* 50% is the width of the columns */
+  flex: 0 0 50%;
+  padding: 2em auto 2em auto;
+}
+
+.previewUnicorn {/*big image preview in column 2*/
+
+}
+
+<!--BADFLEX CSS STARTER PAGE-->
+.launchUnicorns {/*the class for the collection of unicorn icons*/
+  display: inline-flex;
+  margin: 0.1em auto 0.1em auto;
+  width: auto;
+  max-width: 35%;
+  padding: 0em;
+  /*background-color: rgba(192,192,192,0.5);*/
+}
+.unicornPen {/*class name for the container element holding the unicorn icons*/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+  flex: 1;
+  margin: 0.3em;
+}
+.unicorn_row {/*the divs containing equal sets of unicorn icons*/
+  align-content: center;
+  vertical-align: middle;
+}
+
+#founderPopup {/*ID applied to the .modal-content element on founderpage. specific background color rules for the modal on the founder page*/
+  background-color: black;
+
+}
+#unicornModal {/*ID attribute for specific modal rules for the popup on the founder page to allow a larger preview side by side with content box*/
+
+}
+.previewUnicorn {/*big image preview*/
+
+}
+
+
+
+<!--STARTER PAGE NO GRAIL-->
+<body><!-- function to have region summary sections appear as overlay on page load, with button to close it and see the entire map-->
+  <div class="container" id="founderOnloadOverlay">
+    <main class="main" id="founderOverlayBox" role="main">
+      <header role="banner">
+        <h1>Begin Your Adventure</h1>
+      </header>
+      <!-- Make this section an overlay so that it can be closed and the entire map is visible. HAVE LOGO SMALLER IN CORNER after overlay close-->
+      <section class="logobox">
+        <!--banner goes here-->
+        <img src="welcomeLogo.newGradient.png" id="logo" alt="A very cool horizontal banner">
+      </section>
+      <section class="choosefounder">
+        <h2>Choose Your Founder</h2>
+        <p>You have selected your home region. Now you must choose your herd founder. This is the unicorn with whom you'll begin your journey. You only get one custom founder and you won't be able to pick a new one later on, so choose wisely.</p>
+        <br>
+        <input type="button" class="close" id="closeOverlay" value="View Your Choices">
+      </section>
+    </main>
+  </div>
+  <section id="founderIcons">
+        <!--WHAT WE WANT FOR REGION PREVIEW: icons placed on map, with onclick events to trigger popups with region background and summary, and button to select (onclick event?) or go back. STYLING: we want logo and summary next to each other-->
+    <!-- The clickable region icons will be displayed here, below the description content -->
+    <div class="unicorn_row">
+      <input type="image" src="starterUnicorns/chocolatepalocorn.png" id="ChocoPalo" class="launchUnicorns" value="Chocolate Palomino Unicorn"><!--OK: makes icon a button-->
+
+      <input type="image" src="starterUnicorns/deericorn.vector.png" id="deericorn" class="launchUnicorns" value="Deerlike Unicorn">
+
+      <input type="image" src="starterUnicorns/flaxensorrelcorn.png" id="flaxensorrelcorn" class="launchUnicorns" value="Flaxen Sorrel Unicorn">
+
+      <input type="image" src="starterUnicorns/greenblackunicorn.png" id="greenblackunicorn" class="launchUnicorns" value="Green and Black Unicorn">
+    </div>
+    <div class="unicorn_row">
+      <input type="image" src="starterUnicorns/heraldicbeast.png" id="heraldicbeast" class="launchUnicorns" value="Heraldic Beast">
+
+      <input type="image" src="starterUnicorns/prettyunicorn.png" id="pastelunicorn" class="launchUnicorns" value="Pastel Unicorn">
+
+      <input type="image" src="starterUnicorns/starunicorn.png" id="starunicorn" class="launchUnicorns" value="Celestial Unicorn">
+
+      <input type="image" src="starterUnicorns/traditionalunicorn.png" id="traditionalunicorn" class="launchUnicorns" value="Silver Unicorn">
+    </div>
+    <!--
+    /////////////////////////////////
+    MODAL TESTS GO HERE
+    /////////////////////////////////
+    -->
+    <section class="modal" role="contentinfo">
+      <div class="modal-content" id="founderPopup">
+        <h1 class="popupHeader"></h1>
+        <p class="popupText"></p>
+        <div class="chooseOrNo">
+          <form name="modalform" action="sf_choosestarter.php" method="post">
+            <button type="submit" class="popupButton" id="makeChoice" value="choosethisone">Choose This Founder</button>
+            <button type="button" class="popupButton" id="goBack" value="nope">Return to Choices</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    /////////////////////////////////
+    MODAL TESTS GO HERE
+    /////////////////////////////////
+    -->
+
+  </section>
+
+  <script src = "js/choosefounder.js"></script>
+<!--STARTER PAGE-->
+<!DOCTYPE html>
+<?php
+require '../../../con_test.php';
+require '../../../databaseConnect.php';
+
+
+session_start();
+if (!(isset($_SESSION['login']) && $_SESSION['login'] !="")) {
+  header ("Location: sf_login.php");
+
+}
+/*
+begin with php session. the If statement tests for two things: has a user session called login been set? is this session a blank string?
+>>!(isset($_SESSION['login'])<< :function isset() checks if a session has been set. the NOT operator means we're saying "IF the session has NOT BEEN SET, then..."
+>>$_SESSION['login'] !=""<< :this piece checks to see if the session is NOT a blank string.
+>>If the session has been set and has a 1 in it, and if the session variable has a value of 1, then the user is logged in.
+>>If the session has NOT been set and the session variable is a blank string, the user is NOT logged in and redirects to the login page.
+*/
+//PLACE THIS SCRIPT AT THE TOP OF EVERY RESTRICTED MEMBERS-ONLY PAGE
+?>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sunflame Mountain Home Page</title>
+    <link rel="stylesheet" href="starterPages_stylesheet.css">
+    <meta name="description" content="Sunflame Mountain Registration Page">
+    <meta name="keywords" content="unicorn, unicorns, pet site, virtual pet, pet game, fantasy, fantasy rpg">
+  </head>
+  <body>
+    <div class="bigbox">
+      <main class="main" role="main">
+        <header role="banner">
+          <h1>Begin Your Adventure</h1>
+          <!--banner goes here-->
+          <div id="bannerbox">
+            <img src="welcomeLogo.newGradient.png" id="logo" alt="A very cool horizontal banner">
+          </div>
+          <a class="GoButton" href="sf_firstlogin.php">First Login</a>
+          <a class="GoButton" href="sf_login.php">Login</a>
+          <!-- Login link for ease of testing only, remove when demo is complete-->
+        </header>
+        <section class="choosestarter">
+          <div>
+            <p>Welcome to the $Region Region</p>
+            <!-- dynamically load region name from user choice-->
+          </div>
+          <h2>Choose Your Founder</h2>
+          <p>You have selected your home region. Now you must choose your herd founder. You only get one custom founder to begin your journey with, so choose wisely.</p>
+
+          <form Name = "f3" action="sf_choosestarter.php" method="post">
+          	<select name="Unicorn">
+          		<option value="none">View a Unicorn</option>
+          		<option value="blackgreenunicorn">Black and Green Unicorn</option>
+          		<option value="starrypurpleunicorn">Starry Purple Unicorn</option>
+          		<option value="pastelunicorn">Pastel Unicorn</option>
+          		<option value="deericorn">Deerlike Unicorn</option>
+          		<option value="traditionalunicorn">White and Silver Unicorn</option>
+          		<option value="heraldicunicorn">Heraldic Unicorn</option>
+              <option value="flaxensorrelunicorn">Flaxen Sorrel Unicorn</option>
+              <option value="chocolatepalocorn">Chocolate Palomino Unicorn</option>
+          	</select>
+          	<button type="submit" name = "Submit2" Value = "View This Unicorn">View This Unicorn</button>
+          </form>
+
+          <?php
+          if (isset($_POST['Submit2'])) {
+            //display unicorn bios
+          	$unicorn = $_POST['Unicorn'];
+
+          	Switch ($unicorn) {
+          		Case 'blackgreenunicorn':
+          			print ("<img src=starterUnicorns/greenblackunicorn.png>") . "<BR>";
+                print ("A ghostly, translucent creature of ink-black coat. Its mane, tail, and horn shine with green iridescence. Its eyes glow softly as if stars burn within. You feel as if you've seen this creature in a dream...");
+          			break;
+          		Case 'starrypurpleunicorn':
+          			print ("<img src=starterUnicorns/starunicorn.png>") . "<BR>";
+                print ("A magnificent unicorn whose coat is the deep purple of the galaxy. Its mane, tail, and horn glitter with starlight. Its hooves strike sparks as it walks.");
+          			break;
+          		Case 'pastelunicorn':
+          			print ("<img src=starterUnicorns/prettyunicorn.png>") . "<BR>";
+                print ("An elegant unicorn, delicately built. Its coat is a gentle pastel purple, its mane and tail soft white. Its horn and eyes are a bright, vivid purple.");
+          			break;
+          		Case 'deericorn':
+          			print ("<img src=starterUnicorns/deericorn.vector.png>") . "<BR>";
+                print ("A small, curious creature that darts between the trees. This unicorn's coat is red and tawny, spotted like a fawn's with deep purple markings. Its tail is a long, red plume.");
+          			break;
+          		Case 'traditionalunicorn':
+          			print ("<img src=starterUnicorns/traditionalunicorn.png>") . "<BR>";
+                print ("A unicorn with a graceful, silver horn. Its coat gleams pristine white, its mane and tail are shining silver. It watches you with wise, all-knowing eyes.");
+          			break;
+          		Case 'heraldicunicorn':
+          			print ("<img src=starterUnicorns/heraldicbeast.png>") . "<BR>";
+                print ("A noble beast with a snowy white coat. Its flowing mane and tail are golden, its horn is metallic gold. It bears a sword, which it seems to be offering to you...");
+          			break;
+              Case 'flaxensorrelunicorn':
+          			print ("<img src=starterUnicorns/flaxensorrelcorn.png>") . "<BR>";
+                print ("A spirited unicorn with fiery eyes. Its coat is a deep, coppery red and its mane and tail are a soft flaxen color. It paws the ground and swings its golden horn side to side.");
+          			break;
+              Case 'chocolatepalocorn':
+          			print ("<img src=starterUnicorns/chocolatepalocorn.png>") . "<BR>";
+                print ("A unicorn that arches its neck proudly as it prances. Its coat is a deep, rich brown and its mane and tail are flaxen. It holds its golden horn high.");
+          			break;
+          		default:
+          			print ("No Image Selected");
+          	}
+          }
+          ?>
+          <p>Is this the herd founder you want?</p>
+          <form Name = "f4" action="sf_choosestarter.php" method="post">
+          <button type="submit" name = "Submit3" Value = "Choose This Unicorn">Choose This Unicorn</button>
+
+          <?php
+
+          ?>
+        </section>
+
+  </body>
+</html>
+
+<!--FIRST LOGIN-->
+<div class="bigbox">
+  <main class="main" role="main">
+    <header role="banner">
+      <h1></h1>
+      <!--welcome banner goes here, replace name with banner beneath "welcometo"-->
+      <div id="bannerbox">
+        <img src="welcomeLogo.newGradient.png" id="logo" alt="A very cool horizontal banner">
+      </div>
+      <div class="gobuttons">
+        <a class="GoButton" href="sf_login.php">Login</a>
+        <a class="GoButton" href="sf_register.php">Register</a>
+      </div>
+    </header>
+    <section class="summary">
+      <p>Your journey is about to begin. Soon you'll be asked to choose the founder of your herd, along with the region in which you'll settle your herd. The realm has many challenges waiting for you, so be ready.</p>
+    </section>
+    <section class="form">
+      <FORM NAME ="form1" METHOD ="POST" ACTION ="sf_login.php">
+          <h1>First Login: Begin Your Adventure</h1>
+          <div class="form-row">
+            <label for="username-enter">Username:</label>
+            <INPUT TYPE = 'TEXT' Name ='username' placeholder='Enter Username' value="<?PHP print $yourloginName;?>" maxlength="25">
+          </div>
+          <div class="form-row">
+            <label for="password-enter">Password:</label>
+            <INPUT TYPE = 'TEXT' Name ='password' placeholder='Enter Password' value="<?PHP print $yourloginPass;?>" maxlength="255">
+          </div>
+
+          <button>
+            <p>Login</p>
+              <!--Give login a more exciting value once complete-->
+          </button>
+      </FORM>
+    </section>
+  </main>
+  <?PHP print $errorMessage;?>
+  <footer id="contentinfo" role="contentinfo">
+    <p>Disclaimer: All graphics, except for site logo, are used for demonstration purposes only. See credits page for image credits. All licensed graphics, where applicable, will be replaced with official site art upon commercial launch.</p>
+    <p class="copyright">Copyright &copy; Ayala Atreides. Page created on <time datetime="2017-03-10">October 3rd, 2017</time>. <a class="homelink" href="../about_me_v2.html">Go Home</a></p>
+    <!-- append with link back to portfolio site-->
+  </footer>
+</div>
+<!--LOGIN-->
+<div class="bigbox">
+  <main class="main" role="main">
+    <header role="banner">
+      <h1></h1>
+      <!--welcome banner goes here, replace name with banner beneath "welcometo"-->
+      <div id="bannerbox">
+        <img src="welcomeLogo.newGradient.png" id="logo" alt="A very cool horizontal banner">
+      </div>
+      <div class="gobuttons">
+        <a class="GoButton" href="sf_firstlogin.php">First Login</a>
+        <a class="GoButton" href="sf_register.php">Register</a>
+      </div>
+    </header>
+    <section class="summary">
+      <p>Welcome back. Are you ready to continue your journey?</p>
+    </section>
+    <section class="form">
+      <FORM NAME ="form1" METHOD ="POST" ACTION ="sf_login.php">
+          <h1>Login: Continue Your Story</h1>
+          <div class="form-row">
+            <label for="username-enter">Username:</label>
+            <INPUT TYPE = 'TEXT' Name ='username' placeholder='Enter Username' value="<?PHP print $yourloginName;?>" maxlength="25">
+          </div>
+          <div class="form-row">
+            <label for="password-enter">Password:</label>
+            <INPUT TYPE = 'TEXT' Name ='password' placeholder='Enter Password' value="<?PHP print $yourloginPass;?>" maxlength="255">
+          </div>
+
+          <button>
+            <p>Login</p>
+              <!--Give login a more exciting value once complete-->
+          </button>
+      </FORM>
+    </section>
+  </main>
+  <?PHP print $errorMessage;?>
+  <footer id="contentinfo" role="contentinfo">
+    <p class="copyright">Copyright &copy; Ayala Atreides. Page created on <time datetime="2017-03-10">October 3rd, 2017</time>. <a class="homelink" href="../about_me_v2.html">Go Home</a></p>
+    <!-- append with link back to portfolio site-->
+  </footer>
+</div>
+<!--REGISTER-->
+  <div class="bigbox">
+    <main class="main" role="main">
+      <header role="banner">
+        <h1></h1>
+        <div id="bannerbox">
+          <img src="welcomeLogo.newGradient.png" id="logo" alt="A very cool horizontal banner">
+        </div>
+        <div class="gobuttons">
+          <a class="GoButton" href="sf_firstlogin.php">First Login</a>
+          <a class="GoButton" href="sf_login.php">Login</a>
+        </div>
+      </header>
+      <section class="summary">
+        <p>Sunflame Mountain: the soaring peak where the great astral spirit Sunflame reached forth its spiraling horn and brought the first unicorns into existence. Descending from its slopes, the unicorns have ventured forth across this wild realm, adapting and changing along the way. And in their travels, they have encountered the many children of the other astral spirits... and not all of them are kind. This is where you find yourself, at a new beginning in this world. What kind of herd will you build? What adventures will you find? What is your role in this story? The choice is yours. Join the story and begin your journey.</p>
+      </section>
+      <section class="form">
+        <FORM NAME ="form1" METHOD ="POST" ACTION ="sf_register.php">
+            <h1>Register</h1>
+            <p>Required fields are followed by <abbr title="required">*</abbr>.</p>
+            <div class="form-row">
+              <label for="form-email">Email:<abbr title="required">*</abbr></label>
+              <INPUT TYPE = 'TEXT' Name ='email' placeholder="Enter Email Address" value="<?PHP print $yourEmail;?>" >
+            </div>
+            <div class="form-row">
+              <label for="username-enter">Username:<abbr title="required">*</abbr></label>
+              <INPUT TYPE = 'TEXT' Name ='username' placeholder="Create a Username" value="<?PHP print $yourloginName;?>" >
+            </div>
+            <div class="form-row">
+              <label for="password-enter">Password:<abbr title="required">*</abbr></label>
+              <INPUT TYPE = 'TEXT' Name ='password' placeholder="Create a Password" value="<?PHP print $yourloginPass;?>" >
+            </div>
+            <button>
+              <p>Register</p>
+                <!--Give login a more exciting value once complete-->
+            </button>
+        </FORM>
+      </section>
+    </main>
+    <?PHP print $errorMessage;?><!--this php script prints error messages to the signup page for users to see -->
+    <footer id="contentinfo" role="contentinfo">
+      <p>Disclaimer: All graphics, except for site logo, are used for demonstration purposes only. See credits page for image credits. All licensed graphics, where applicable, will be replaced with official site art upon commercial launch.</p>
+      <p class="copyright">Copyright &copy; Ayala Atreides. Page created on <time datetime="2017-03-10">October 3rd, 2017</time>. <a class="homelink" href="../about_me_v2.html">Go Home</a></p>
+      <!-- append with link back to portfolio site-->
+    </footer>
+  </div>
+<!--NON-FLEX CSS RULES-->
+.main {
+
+}
+
+#logo {
+  display:block;/*centers logo*/
+  margin: 1.5em auto 1em auto;
+  width: auto;
+  max-width: 35%;
+  /*max-width: 56.25em;
+  max-height: 18.75em;*/
+  padding: 0em;
+} /* OK : gets logo size under control*/
+
+.summary {
+  margin: 2em auto 2em auto;
+  text-align: center;
+  text-indent: 2em;
+  display: block;
+  padding: 1em;
+}
+
+/*
+----------------------------
+FORM RULES
+----------------------------
+*/
+.form {
+
+}
+.form-row {
+
+}
+input, label {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input:focus {
+  border-color: #000;
+}
+input:invalid {
+	border: 2px solid red;
+}
+input {
+
+}
+label {
+
+}
+
+
+footer { /*CENTERS FOOTER BELOW BIGBOX */
+  text-align: center;
+  display: block;
+  margin: 2em auto 2em auto;
+  width: 90%;
+  padding: 0.5em;
+} /* OK : puts footerbox into correct position. NEED TO GET IT TO BOTTOM OF PAGE*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--OLD STUFF BELOW THIS LINE-->
+
+
+var modal = document.querySelector(".modal");//selecting the element with our class=modal
+var launchPopup = document.getElementsByClassName("launchPopup");//selecting all our icon buttons with class=launchPopup
+var closeButton = document.querySelector("#goBack");//selecting our button with id=goBack. we are only activating the close button right now,since we don't have the code for storing user choice yet
+var popupBG = document.querySelector(".popupBG");//selecting our image element that will contain our backgrounds
+var popupText = document.querySelector(".popupText");//selecting our p element that will hold our descriptions
+
+closeButton.addEventListener("click", hideModal);
+window.addEventListener("click", windowOnClick);
+
+for (var i = 0; i < launchPopup.length; i++) {
+  launchPopup[i].onclick = function() {
+    showModal(this);
+  }
+}
+// NAILED IT
+//for multiple buttons that do the same thing, for loop is MANDATORY!!!
+
+function showModal() {//function to display the modal
+        modal.classList.remove("hide-modal", "hide-modal2");//modal is the object, plugging in our variable name. classList property, remove method
+        modal.classList.add("show-modal");//modal is the object, plugged in from variable. classList property, add method
+        //vvvvCODE TO ADD MODAL CONTENT UPON MODAL LAUNCHvvvvv
+
+    }
+
+function hideModal() {
+        modal.classList.remove("show-modal");
+        modal.classList.add("hide-modal");
+        setTimeout(function() {
+            modal.classList.add("hide-modal2");
+        }, 250);
+    }//THE TIMER: this allows for a nice transition animation on the modal
+
+function windowOnClick(event) {//this function hides the BG when the user clicks outside the modal, as well as on the button
+        if (event.target == modal) {
+            hideModal();
+        }
+    }
+
+
+///////////////////////////////////////////////////////////
+OLD REGIONSELECT CODE
+///////////////////////////////////////////////////////////
+<form Name = "f1" action="sf_chooseregion.php" method="post">
+  <!-- trying hardcoded html dropdown form-->
+  <select name="region">
+    <option value="none">Select a Region</option>
+    <option value="1">Arctic</option>
+    <option value="2">Desert</option>
+    <option value="3">Swamp</option>
+    <option value="4">Forest</option>
+    <option value="5">Savannah</option>
+    <option value="6">Mountains</option>
+  </select>
+  <button type="submit" name = "Submit" Value = "View This Region">View This Region</button>
+</form>
+<?php
+  //code to fetch and display region summary when a region is selected to preview
+  if (isset($_POST['Submit'])) {
+
+    $regionDisplay = $_POST['region'];
+    $database = "sf_registry";
+
+    $db_found = new mysqli(DB_SERVER, DB_USER, DB_PASS, $database);
+
+    if ($db_found) {
+      $SQL = $db_found->prepare('SELECT regionSummary FROM tbl_sf_regions WHERE regionID = ?');
+      //prepared statement to access the regions database and select region summary based on region ID
+      $SQL->bind_param('s', $regionDisplay);
+      $SQL->execute();
+      //the execute function runs the sql statement
+      $result = $SQL->get_result();
+      //get_result() returns the results of the sql query represented by $SQL. will return an array of rows from the database table
+      //we store the results of the query as a variable
+
+      if ($result->num_rows > 0) {
+        while ($db_field = $result->fetch_assoc()) {
+          print $db_field['regionSummary'] . "<BR>";
+        }
+      }
+    } else {
+      $errorMessage = "Database connection error";
+    }
+  }
+
+?>
+<div>
+  <p>Are you ready to choose?</p><!--row of buttons, replace with icons -->
+    <form Name = "f2" action="sf_chooseregion.php" method="post">
+      <button type="submit" name = "Submit1" value="1">Arctic</button>
+      <button type="submit" name = "Submit1" value="2">Desert</button>
+      <button type="submit" name = "Submit1" value="3">Swamp</button>
+      <button type="submit" name = "Submit1" value="4">Forest</button>
+      <button type="submit" name = "Submit1" value="5">Savannah</button>
+      <button type="submit" name = "Submit1" value="6">Mountains</button>
+</div>
+<?PHP print $errorMessage;?><!--this php script prints error messages to the page for users to see -->
+<?php
+  //code to store user region choice to member table
+  if (isset($_POST['Submit1'])) {
+    $regionGet = $_POST['Submit1'];
+    $database = "sf_registry";
+
+    $db_found = new mysqli(DB_SERVER, DB_USER, DB_PASS, $database);
+
+    if ($db_found) {
+
+      $SQL = $db_found->prepare('SELECT usrregion FROM tbl_sf_members WHERE id=?');
+        //checking to see if user ALREADY has a region stored with their account info
+      $SQL->bind_param('s', $yourloginName);
+      $SQL->execute();
+      //to ensure each entry in L1 username column is unique, we need to get results back from sql query:
+      $result = $SQL->get_result();//if any results come back, then that entry already exists
+      //$SQL->store_result();
+      //$result = $SQL->num_rows;
+      //print $result;
+      if ($result->num_rows > 0) {
+        $errorMessage = "You've already chosen a region!";
+      } else {
+        //code to store user region if user's usrregion field is empty
+        $SQL = $db_found->prepare('SELECT regionName FROM tbl_sf_regions WHERE regionID = ?' );//selecting the name of the region in the DB where the region ID matches user's clicked button
+        $SQL->bind_param('s', $regionGet);//binding the value of the regionChoose button that was clicked
+        $SQL->execute();
+
+        $result = $SQL->get_result();
+        //get_result() returns the results of the sql query represented by $SQL. will return an array of rows from the database table
+        //we store the results of the query as a variable
+
+        if ($result->num_rows > 0) {
+          while ($db_field = $result->fetch_assoc()) {
+            //print $db_field['regionName'] . "<BR>";
+          }
+        }
+      }
+    } else {
+      $errorMessage = "Database connection error";
+    }
+  }
+
+  //header("Location: sf_choosestarter.php");//redirect to starter page when choice is sent to database
+?>
+
+
+UPDATE `sf_registry`.`tbl_sf_members` SET `usrregion` = 'Desert' WHERE `tbl_sf_members`.`id` = 1
+UPDATE `tbl_sf_members` SET `id`=[value-1],`emailaddr`=[value-2],`l1`=[value-3],`l2`=[value-4],`usrregion`=[value-5],`usrstarter`=[value-6] WHERE 1
+
+
+
+/////////////////////////////////////////////////
+OLD css
+////////////////////////////////////////////////
+/*FIX TEXTBOX RESPONSIVENESS
+FIX IMAGE RESPONSIVENESS*/
+
+                        html {
+                          background: url("testmap.jpg") no-repeat center center fixed;
+                          -webkit-background-size: cover;
+                          -moz-background-size: cover;
+                          -o-background-size: cover;
+                          background-size: cover;
+                        }KEEP
+
+                        body {
+                          font-family: 'IM FELL English SC', sans-serif;
+                          color: black;
+                          font-size: 1.25em;
+                          font-style: normal;
+                          margin: 0.1em; /*THIS ESTABLISHES SPACE AROUND BIGBOX, NOT RELATED TO FONT */
+                        }KEEP
+
+
+                        #logo {
+                          display: block;
+                          margin: 0.1em auto 0.1em auto;
+                          width: auto;
+                          max-width: 45%;
+                          /*max-width: 56.25em;
+                          max-height: 18.75em;*/
+                          padding: 0em;
+                          margin-bottom: 1em;
+                        }
+
+form {
+  margin: auto;
+  min-width:18.75em;
+  max-width:37.5em;
+  padding: 1em;
+}
+
+.form {
+
+}
+
+input {
+
+}
+
+
+a.GoButton {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+    background-color:gray;
+    border: 0.125em solid black;
+    border-radius: 0.3em;
+    padding: 0.2em;
+
+}
+
+.summary {
+
+}
+
+label {
+  font-size: 1.563em; /* 25/16 */
+  font-style: italic;
+  color: black;
+  font-weight: bolder;
+  text-align: center;
+}
+
+footer {
+
+}
+
+/*THESE RULES CENTER THE CONTENT AREAS ON THE PAGE */
+.bigbox { /*CENTERS CONTENT ON BACKGROUND*/
+  background-color:rgba(192,192,192,0.0);
+  display: block;
+  margin: 1em auto 1em auto;
+  width: 95%;
+  border: 0.125em solid transparent; /* 2/16 */
+  padding: 0.1em;
+}
+
+section {/*CENTERS SECTIONS INSIDE BIGBOX */
+  background-color:rgba(192,192,192,0.9);
+  display: block;
+  margin: 0.5em auto 1em auto;
+  width: 95%;
+  border: 0.125em solid black;
+  padding: 0.5em;
+  text-align: center;
+}
+
+/* THESE RULES ALIGN CHOOSEREGION NEXT TO LOGO*/
+.chooseregion {
+  width: 50%
+}
+header {/* CENTERS HEADERCONTENT*/
+  display: block;
+  float: left;
+  margin: 0.5em auto 1em auto;
+  width: 50%;
+  padding: 0.5em;
+  text-align: center;
+}
+
+                            footer { /*CENTERS FOOTER BELOW BIGBOX */
+                              background-color:rgba(192,192,192,0.6);
+                              text-align: center;
+                              display: block;
+                              margin: 2em auto 2em auto;
+                              width: 50%;
+                              border: 0.125em solid black;
+                              padding: 0.5em;
+                            }
+
+.unicornIcons {
+  display: block;
+  margin: 0.1em auto 0.1em auto;
+  width: 95%;
+  border: 0.063em; /* 1/16 */
+  padding: 0.1em;
+}
+
+.photo {
+  float: right;
+  width: 25%;
+  /*height: 25%;*/
+  padding: 0.1em;
+}
+
+.photo img {
+  display: inline-block;
+  /*width: 50%;*/
+  height: 25%;
+  padding: 0.1em;
+}
+
+.unicornIcons::after {
+  content: "";
+  display: table;
+  clear: right;
+}
+
+*, *::after, *::before { /*NECESSARY FOR FLOAT TO WORK!!! */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* MEDIA QUERIES */
+/*NOTE: QUERIES MUST REFER TO SAME RULE AS DEFAULT VALUES, EG, ID CLASS AND ELEMENT NAMES MUST BE IDENTICAL IN DEFAULT AND QUERIED RULES*/
+@media (max-width: 600px) {.form {width: 100%;}}
+@media (max-width: 600px) {.summary {width: 100%;}}
+/*@media (max-width: 700px) {input {width: 100%;}}8?
+/*@media (max-width: 700px) {textarea {width: 100%;}}*/
+@media (max-width: 600px) {footer {width: 100%;}}
+@media (max-width: 1280px) {img {width: 100%;}}
+@media (max-width: 1280px) {img {height: 50%;}}
+
+
+
+
+.container {
+  position: relative;
+}
+
+#regionOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  /*display: none;*/
+}

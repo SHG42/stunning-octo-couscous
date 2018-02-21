@@ -1,0 +1,514 @@
+/*
+///////////////////////////////////////////////////////////
+STYLESHEET FOR NEW USER STARTPAGES
+NOTES:
+  - MAKE ALL PAGES ACCESSIBLE: look into tabindex, focus (esp for selection pages)
+//////////////////////////////////////////////////////////
+*/
+
+/*
+///////////////////////////////////////////////////////////
+GLOBAL RULES
+//////////////////////////////////////////////////////////
+*/
+
+html, body {
+  overflow-x: hidden
+}
+
+html { /*BACKGROUND IMAGE: CAN JUST BE GENERIC IMAGE, have map ONLY appear after initial overlay goes away*/
+  /*make this a lowres parchment or texture bg for filler*/
+} /* OK */
+
+
+* { /*THIS RESETS INVISIBLE EXTRA PADDING AND MARGINS ON TEXT ELEMENTS, allows padding to be fully individualized per element */
+  padding: 0;
+  margin: 0;
+  border: 0;
+} /* OK */
+
+ul, li {
+  list-style-type: none;
+} /* THESE REMOVE BULLET POINTS */
+
+body { /* ESTABLISHES BODY FONT*/
+  font-family: 'IM FELL English SC', sans-serif;
+  color: black;
+  font-size: 1.25em;
+  font-style: normal;
+  background-color: black;/*CHANGE LATER*/
+  /*FLEX RULES*/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+} /* OK */
+
+#regionOnloadOverlay, #founderOnloadOverlay {/*INITIAL OVERLAY RULES: KEEP. PERTAINS ONLY TO INITIAL OVERLAY AND ITS CONTENTS!!! OUTER OVERLAY CONTAINER*//*common class name for #regionOnloadOverlay and #founderOnloadOverlay*/
+  display: flex; /*OK: sets default behavior to hidden*/
+  flex: 1;
+  margin: 0.3em;
+}
+
+.main {/*specific rules for the inner overlay contentbox on the select page*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 0.125em solid black;
+  background-image: url("landscape_background.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.overlaycontent {
+  background-color:rgba(192,192,192,0.8);
+  border: 0.125em solid black;
+  width: 80%;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#logo {
+  display: block;
+  margin: 1em auto 1em auto;
+  width: auto;
+  max-width: 30%;
+  position: relative;
+} /* OK : gets logo size under control*/
+#flatlogo {
+  display: none;
+  width: auto;
+  max-width: 80%;
+  position: relative;
+}
+
+header {
+  text-decoration: underline;
+}
+
+.overlayblather {
+  padding: 0.5em;
+}
+
+#closeOverlay {
+  width: 30%;
+  padding: 1em;
+  text-align: center;
+}
+
+
+footer { /*CENTERS FOOTER BELOW BIGBOX */
+  background-color:rgba(192,192,192,0.6);
+  text-align: center;
+  display: block;
+  margin: 2em auto 2em auto;
+  width: 90%;
+  border: 0.125em solid black;
+  padding: 0.5em;
+} /* OK : puts footerbox into correct position.*/
+
+/*
+----------------------------
+GENERAL MODAL POPUP RULES: PERTAIN ONLY TO THE POPUP MODAL AND ITS CONTENTS!!!! RULES FOR BOTH MODALS, EXCLUDING SPECIFIC BEHAVIORS
+
+NOSCRIPT VER: NO DISPLAY RULES IN MAIN RULE SET
+----------------------------
+*/
+.modal {/*for the section containing the whole modal including background layer*/
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  overflow: auto;/*added*/
+}
+
+.modal-content {/*for the div containing the content box*/
+  background-color:rgba(192,192,192,0.0);
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.popupText {
+  background-color:rgba(192,192,192,0.9);
+  border: 0.125em groove black;
+}
+.popupHeader {
+  text-decoration: underline;
+  background-color:rgba(192,192,192,0.9);
+  border: 0.125em groove black;
+}
+.popupHeader, .popupText {
+  padding: 1em;
+  margin: 1em;
+}
+
+
+.popupButton {
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: .25rem;
+  background-color: lightgray;
+  border: 0.125em solid darkgray;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.popupButton:hover {
+  background: linear-gradient(to right, rgba(4,239,235,0.9),rgba(4,239,235,0.5));
+}
+
+
+/*
+///////////////////////////////////////////////////////////
+REGIONPAGE RULES
+//////////////////////////////////////////////////////////
+*/
+
+
+
+/*
+----------------------------
+MAP AND ICON RULES
+----------------------------
+*/
+#regionIcons {
+  display: none;
+  background-image: url("founderpageBG.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.launchPopup {/*common class for region buttons, NOT A CONTAINER*/
+  margin: 1em auto 1em auto;
+  width: 45%;
+  padding: 0em;
+}
+
+.yeoldemap {/*class name for the container element holding the region icons*/
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+.onthemap {/*the rows containing equal sets of region icons*/
+  /* 50% is the width of the columns */
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+}
+/*
+-----------------------------------------------------
+REGIONMAP MODAL SPECIFIC rules
+-----------------------------------------------------
+*/
+#mapmodal {
+  display: flex;
+  min-height: 100vh;
+}
+#mapmodal-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3em;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mapmodal-text {
+  width: 45%;
+}
+
+
+/*
+///////////////////////////////////////////////////////////
+FOUNDERPAGE RULES
+//////////////////////////////////////////////////////////
+*/
+
+#founderIcons {
+  display: none;
+}
+
+/*
+----------------------------
+UNICORN DISPLAY AND POPUP RULES
+----------------------------
+*/
+.launchUnicorns {/*common class for unicorn icons, NOT A CONTAINER*/
+  margin: 0.1em auto 0.1em auto;
+  width: 40%;
+  padding: 0em;
+}
+
+.unicornPen {/*class name for the container element holding the unicorn icons*/
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  background-image: url("founderpageBG.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.unicorn_row {/*the divs containing equal sets of unicorn icons*/
+  /* 50% is the width of the columns */
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+
+/*
+----------------------------
+SPECIFIC MODAL RULES FOR FOUNDER PAGE BECAUSE WE WANT TWO COLUMNS
+----------------------------
+*/
+#unicornModal {/*ID attribute for the modal container on the founder page*/
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: linear-gradient(rgba(33,68,68,1),rgba(20,31,31,1));/*CHANGE to PARCHMENT TEXTURE*/
+
+
+}
+
+#founderPopup {/*ID attribute for the container holding the two columns*/
+  display: flex;
+  flex-direction: row;
+  max-width: 100vw;
+  margin: 1em;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#column1 {
+  width: 50%;
+  order: -1;
+  margin: 1em 0 1em 1em;
+  align-items: center;
+  justify-content: center;
+}
+#column2 {
+  width: 50%;
+
+}
+
+
+
+/*
+///////////////////////////////////////////////////////////
+MEDIA QUERIES
+-Make one for setting logo above description when in small screen size
+//////////////////////////////////////////////////////////
+*/
+/*NOTE: for small screen widths, make modals cover whole screen. have initial overlay fully opaque and resize popup BGs to fit screen size.*/
+@-ms-viewport{
+  width: device-width;
+}
+
+/*UNICORN DISPLAY*/
+@media screen and (max-width: 960px) and (orientation: portrait) {
+  .unicornPen {flex-direction: row;}
+  .unicorn_row {flex-direction: column; width: 100%;}
+  .launchUnicorns {width: 100%; margin: auto;}
+}
+
+/*MAP DISPLAY*/
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .onthemap {width: 100%;}
+  .launchPopup {width: 60%;}
+}
+
+@media screen and (max-width: 800px) and (orientation: portrait) {
+  .yeoldemap {flex-direction: column;}
+  .onthemap {width: 100%; flex-direction: row;}
+}
+
+
+/*///////////////////////////////////////////////////////*/
+
+/*REGION MODAL BREAKPOINTS*/
+@media screen and (max-width: 1024px) and (orientation: landscape){
+  .modal {background-color: rgba(0, 0, 0, 1);}
+  .mapmodal-text {width: 70%;}
+  .popupButton {padding: 1em;}
+  #mapmodal-content {background-size: cover;}
+}
+@media screen and (max-width: 1024px) and (orientation: portrait){
+  .modal {background-color: rgba(0, 0, 0, 1);}
+  .mapmodal-text {width: 80%;}
+  .popupButton {padding: 1em;}
+  #mapmodal-content {background-size: cover;}
+}
+
+@media screen and (max-width: 414px) and (orientation: portrait) {
+  #mapmodal-content {width: 100%;}
+  .mapmodal-text {width: 98%;}
+}
+@media screen and (max-width: 736px) and (orientation: landscape) {
+  #mapmodal-content {width: 100%;}
+  .mapmodal-text {width: 98%;}
+  .popupText, .popupHeader {padding: 0.5em; margin: 0.5em;}
+}
+
+@media screen and (max-width: 360px) and (orientation: portrait) {
+  #mapmodal-header {padding: 0.2em;}
+}
+@media screen and (max-width: 640px) and (orientation: landscape) {
+  #mapmodal-header {padding: 0.2em;}
+  .popupText {margin: 0.1em; padding: 0.1em;}
+}
+
+@media screen and (max-width: 320px) and (orientation: portrait) {
+  #mapmodal-header {display: none;}
+  .popupText {margin: 0.1em; padding: 0.1em;}
+}
+@media screen and (max-width: 568px) and (orientation: landscape) {
+  #mapmodal-header {display: none;}
+  .popupText {margin: 0.1em; padding: 0.1em;}
+}
+
+/*///////////////////////////////////////////////////////*/
+
+/*OVERLAY BREAKPOINTS*/
+
+@media screen and (max-width: 1366px) and (orientation: portrait) {
+  /*Problem: too much empty space above and below content box. Expand logo to stretch box*/
+  #logo {max-width: 50%;}
+}
+
+@media screen and (max-width: 736px) and (orientation: portrait) {
+  /*Problem: content box hits top and bottom edge of box*/
+  #closeOverlay {width: 80%;}
+  #logo {margin: 0.5em auto 0.5em auto; max-width: 45%;}
+}
+
+@media screen and (max-width: 736px) and (orientation: landscape) {
+  /*Problem: vertical scroll appears*/
+  #closeOverlay {width: 80%; padding: 0.2em;}
+  #logo {display: none;}
+  #flatlogo {display: inline-block; padding: 0.2em;}
+  .overlayblather {padding: 0.3em;}
+}
+
+@media screen and (max-width: 667px) and (orientation: landscape) {
+  /*Problem: scroll created in landscape*/
+  header {display: none;}
+  .overlayblather {padding: 0.1em;}
+  .overlaycontent {padding: 0.1em;}
+}
+
+@media screen and (max-width: 667px) and (orientation: portrait) {
+  /*Problem: hits top and bottom of screen*/
+  header {display: none;}
+  .overlayblather {padding: 0.3em;}
+  #closeOverlay {padding: 0.4em;}
+}
+
+@media screen and (max-width: 640px) and (orientation: landscape) {
+  /*Problem: hits top and bottom of screen*/
+  header {display: inline-block;}
+  #flatlogo {display: none;}
+  .overlayblather {padding: 0.2em;}
+  #closeOverlay {padding: 0.3em;}
+}
+
+@media screen and (max-width: 360px) and (orientation: portrait){
+  #logo {display: none;}
+}
+
+@media screen and (max-width: 568px) and (orientation: landscape){
+  header {display: none;}
+}
+
+
+/*///////////////////////////////////////////////////////*/
+
+
+/*UNICORN MODAL BREAKPOINT 1*/
+@media screen and (max-width: 1280px) and (orientation: portrait) {/*devices with width of 1280px in portrait mode*/
+  /*Problem: columns are cramped, cutoff occurs, needs to be single column*/
+  #founderPopup {flex-direction: column; margin: 0.5em;}
+  #column1 {width: 100%;}
+  #column2 {width: 100%;}
+}
+
+/*UNICORN MODAL BREAKPOINT 2*/
+@media screen and (max-width: 414px) and (orientation: portrait) {
+  /*Problem: need to switch to single column, pic cutoff occurs*/
+  #founderPopup {margin: 0.1em;}
+  #column1, #column2 {margin: 0;}
+  .previewUnicorn {width: 70%;}
+  #unicorn-header, #unicorn-text {padding: 0.3em}
+}
+
+/*UNICORN MODAL BREAKPOINT 3*/
+@media screen and (max-width: 736px) and (orientation: landscape) {
+  /*Problem: two-column is fine, but cutoff occurs for both*/
+  #founderPopup {margin: 0;}
+  #column1, #column2 {margin: 0.3em; max-height: 90%;}
+  .previewUnicorn {width: 90%;}
+  #unicorn-header, #unicorn-text {padding: 0.1em; margin: 0.3em;}
+}
+
+/*UNICORN MODAL BREAKPOINT 4*/
+@media screen and (max-width: 320px) and (orientation: portrait) {
+  /*Problem: cutoff of both columns occurs at smallest size*/
+  .previewUnicorn {display: none;}
+}
+@media screen and (max-width: 568px) and (orientation: landscape) {
+  #unicorn-header {display: none;}
+}
+
+/*///////////////////////////////////////////////////////*/
+
+/*NOSCRIPT DISPLAY RULES*/
+#regionOnloadOverlay:focus-within { /*container is the common class name for #regionOnloadOverlay, #founderOnloadOverlay*/
+  display: none;
+}
+
+#founderOnloadOverlay:focus-within {
+  display: none;
+}/*OK! Gets overlay to close without JS*/
+
+/*Need to enable map/founderpen*/
+/* #regionOnloadOverlay and #founderOnloadOverlay are direct siblings of #regionIcons and #founderIcons*/
+#regionOnloadOverlay:focus-within + #regionIcons {
+  display: inline-flex;
+}
+
+#founderOnloadOverlay:focus-within + #founderIcons {
+  display: inline-flex;
+}/*OK! Displays content*/
+
+/*Next task: MODALS*/
+/*We know that we can create a display state change by targeting a direct sibling of the focused element. if we make each modal a sibling of its corresponding button, we can set default display to none and target each as a sibling of its button*/
+#mountainmodal, #arcticmodal, #swampmodal, #forestmodal, #savannahmodal, #desertmodal {
+  display: none;
+}
+
+#Mountains:focus + #mountainmodal {
+  display: flex;
+}
