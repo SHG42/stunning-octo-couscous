@@ -11,11 +11,11 @@ openit.onload = function doRegionOverlay() {
 var closeit = document.getElementById("closeOverlay");
 
 closeit.onclick = function doCloseOverlay() {
-    document.getElementById("regionOnloadOverlay");
+    //document.getElementById("regionOnloadOverlay");
     document.getElementById("regionOnloadOverlay").style.display="none";
 
     //rules to display map
-    document.getElementById("regionIcons");//region icons are not visible till the overlay is closed
+    //document.getElementById("regionIcons");//region icons are not visible till the overlay is closed
     document.getElementById("regionIcons").style.display="inline-flex";
 
   }
